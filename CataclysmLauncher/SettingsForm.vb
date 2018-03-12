@@ -31,6 +31,26 @@ Public Class SettingsForm
         InitializeElements()
     End Sub
 
+    ' Form Movement
+    Dim dragForm As Boolean = False
+    Dim x, y As Integer
+
+    Private Sub TopFrame_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        dragForm = True
+        x = e.X
+        y = e.Y
+    End Sub
+
+    Private Sub TopFrame_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
+        If dragForm Then
+            Me.Left = MousePosition.X - x
+            Me.Top = MousePosition.Y - y
+        End If
+    End Sub
+
+    Private Sub TopFrame_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
+        dragForm = False
+    End Sub
 
     Public Sub DisableResetPreferencesButton()
         RemoveHandler RestoreButton.MouseEnter, AddressOf RestoreButton_MouseEnter

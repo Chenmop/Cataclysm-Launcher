@@ -39,9 +39,7 @@ Public Class MainWindow
         ' TODO: other news content
 
         ' Check for existing wow.exe
-        If File.Exists("wow.exe") Or File.Exists("wow-64.exe") Then
-            EnablePlayButton()
-        Else
+        If Not File.Exists("wow.exe") And Not File.Exists("wow-64.exe") Then
             ShowSetupOffering()
             DisablePlayButton()
         End If
@@ -73,12 +71,14 @@ Public Class MainWindow
         UpdateBackgroundImage.BackgroundImage = My.Resources.BottomUpdatePatch
     End Sub
 
-    Private Sub CreateConfig()
+    Public Sub LaunchWoW()
+        If File.Exists("wow.exe") And configMgr.launchWoW32 Then
+            Process.Start("wow.exe")
+        End If
 
-    End Sub
-
-    Private Sub GetClientFiles()
-
+        If File.Exists("wow-64.exe") And Not configMgr.launchWoW32 Then
+            Process.Start("wow-64.exe")
+        End If
     End Sub
 
     Private Sub DisablePlayButton()
@@ -163,12 +163,7 @@ Public Class MainWindow
 
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         configMgr.UpdateRealmlistAdress()
-
-        If File.Exists("wow.exe") And configMgr.launchWoW32 Then
-            Process.Start("wow.exe")
-        ElseIf File.Exists("wow-64.exe") Then
-            Process.Start("wow-64.exe")
-        End If
+        LaunchWoW()
         MyBase.Close()
     End Sub
 
@@ -225,6 +220,11 @@ Public Class MainWindow
     Private Sub SetRealmlistAdressToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetRealmlistAdressToolStripMenuItem.Click
         GrayOutForm()
         RealmlistForm.Show()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        GrayOutForm()
+        AboutForm.Show()
     End Sub
 
     Public Sub GrayOutForm()

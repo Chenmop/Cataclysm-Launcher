@@ -6,6 +6,27 @@
         configMgr = MainWindow.configMgr
     End Sub
 
+    ' Form Movement
+    Dim drag As Boolean = False
+    Dim x, y As Integer
+
+    Private Sub TopFrame_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        drag = True
+        x = e.X
+        y = e.Y
+    End Sub
+
+    Private Sub TopFrame_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
+        If drag Then
+            Me.Left = MousePosition.X - x
+            Me.Top = MousePosition.Y - y
+        End If
+    End Sub
+
+    Private Sub TopFrame_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
+        drag = False
+    End Sub
+
     ' Yes Button
     Private Sub YesButton_MouseEnter(sender As Object, e As EventArgs) Handles YesButton.MouseEnter
         YesButton.BackgroundImage = My.Resources.yesButtonHover

@@ -28,6 +28,7 @@ Partial Class MainWindow
         Me.OptionsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetRealmlistAdressToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseButton = New System.Windows.Forms.PictureBox()
         Me.MainWindowImage = New System.Windows.Forms.PictureBox()
@@ -47,7 +48,6 @@ Partial Class MainWindow
         Me.PatchNotesBackground = New System.Windows.Forms.PictureBox()
         Me.PatchNotesLabel = New System.Windows.Forms.Label()
         Me.PatchNotesLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         GameSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsMenuStrip.SuspendLayout()
         CType(Me.CloseButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +116,15 @@ Partial Class MainWindow
         Me.InfoToolStripMenuItem.Padding = New System.Windows.Forms.Padding(0)
         Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(32, 20)
         Me.InfoToolStripMenuItem.Text = "Info"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.Black
+        Me.AboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'HelpToolStripMenuItem
         '
@@ -317,15 +326,6 @@ Partial Class MainWindow
         Me.PatchNotesLinkLabel.TabStop = True
         Me.PatchNotesLinkLabel.Text = "Read the whole patch notes"
         Me.PatchNotesLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.Black
-        Me.AboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
         '
         'MainWindow
         '
